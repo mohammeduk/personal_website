@@ -91,3 +91,27 @@ h2 {
   width: 50%;
   filter: invert(100%);
 }
+
+
+@media screen and (max-width: 64em) and (min-width: 42em) {
+  h1 {
+    font-size: 2.7rem;
+  }
+
+  h2 {
+    font-size: 1.8rem;
+  }
+
+  #center-div {
+    margin-top: 600px;
+  }
+
+  .name {
+    padding-top: 0;
+  }
+
+  .about {
+    padding-top: 50px;
+    padding-bottom: 60px;
+  }
+}
