@@ -1,1 +1,45 @@
-eval(function(p,a,c,k,e,d){e=function(c){return(c<a?'':e(parseInt(c/a)))+((c=c%a)>35?String.fromCharCode(c+29):c.toString(36))};if(!''.replace(/^/,String)){while(c--){d[e(c)]=k[c]||e(c)}k=[function(e){return d[e]}];e=function(){return'\\w+'};c=1};while(c--){if(k[c]){p=p.replace(new RegExp('\\b'+e(c)+'\\b','g'),k[c])}}return p}('8 E(){$.D({C:"A",B:"F://G.L/K/z",H:{I:"M-w",q:"r-t-y-u-x",v:"s"},J:\'X\',11:8(4){1 2=[];1 3=[];1 5=[];1 g=b.n(c.9(4.6));1 p=b.n(c.9(4.6).f);h(i=0;i<p;i++){2.e(b.N(g)[i])}c.9(2).14(8(7){16(4.6[2[7]].k!=""){3.e(4.6[2[7]].k)}5.e(4.6[2[7]].Q)});1 3=3.j();1 5=5.j();1 m=P.O("S");h(1 i=0;i<3.f;i++){1 l=m.T(i);1 o=l.W(0);o.V="<a U=\'"+5[i]+"\'>"+3[i]+"</a>"}$(\'.R-Y\').12()},d:8(d){15.17("13 Z 10",d)}})}',62,70,'|var|listNum|readingTitle|response|readingUrl|list|key|function|keys||JSON|Object|error|push|length|readingList|for||reverse|resolved_title|row|table|stringify|cell|readingListLength|access_token|d8fe28b0|simple|8a33|33b7|detailType|0b82ce98bf4d09daeb7ad48f|a553e1|95e1|get|POST|url|type|ajax|bodyOnLoad|https|getpocket|data|consumer_key|dataType|v3|com|70614|parse|getElementById|document|resolved_url|lds|myTable|insertRow|href|innerHTML|insertCell|json|ripple|went|wrong|success|hide|Something|forEach|console|if|log'.split('|'),0,{}))
+function bodyOnLoad() {
+  $.ajax({
+    type: "POST",
+    url: "https://cors-anywhere.herokuapp.com/https://getpocket.com/v3/get",
+    headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+    data: {
+      consumer_key: "70614-0b82ce98bf4d09daeb7ad48f",
+      access_token: "d8fe28b0-8a33-95e1-33b7-a553e1",
+      detailType: "simple"
+    },
+    dataType: 'json',
+    success: function(response) {
+      var listNum = [];
+      var readingTitle = [];
+      var readingUrl = [];
+      var readingList = JSON.stringify(Object.keys(response.list));
+      var readingListLength = JSON.stringify(Object.keys(response.list).length);
+      for (i = 0; i < readingListLength; i++) {
+        listNum.push(JSON.parse(readingList)[i])
+      }
+
+      Object.keys(listNum).forEach(function(key) {
+        if (response.list[listNum[key]].resolved_title != "") {
+          readingTitle.push(response.list[listNum[key]].resolved_title)
+        }
+        readingUrl.push(response.list[listNum[key]].resolved_url)
+      });
+
+      var readingTitle = readingTitle.reverse();
+      var readingUrl = readingUrl.reverse();
+      var table = document.getElementById("myTable");
+      for (var i = 0; i < readingTitle.length; i++) {
+        var row = table.insertRow(i);
+        var cell = row.insertCell(0);
+        cell.innerHTML = "<a href='" + readingUrl[i] + "'>" + readingTitle[i] + "</a>"
+      }
+      $('.lds-ripple').hide()
+
+    },
+
+    error: function(error) {
+      console.log("Something went wrong", error)
+    }
+  })
+}
