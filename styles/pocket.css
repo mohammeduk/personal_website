@@ -163,27 +163,34 @@ h4 {
 }
 
 
-@media screen and (max-width: 64em) and (min-width: 42em) {
-  h1 {
-    font-size: 2.7rem;
+@media screen and (max-width: 425px) {
+
+  .about-p {
+    margin-left: 148px;
+    margin-right: 148px;
   }
 
-  h2 {
-    font-size: 1.8rem;
+}
+
+@media screen and (min-width: 425px) and (max-width: 1440px) {
+
+  #about-center-div {
+    margin-top: 195px;
   }
 
-  #center-div {
-    /* margin-top: 600px; */
+}
+
+@media screen and (min-width: 1440px) and (max-width: 1024px) {
+
+  #about-center-div {
+    margin-top: 316px;
   }
 
-  .name {
-    padding-top: 0;
+  .about-p {
+    margin-left: 148px;
+    margin-right: 148px;
   }
 
-  .about {
-    /* padding-top: 50px;
-    padding-bottom: 60px; */
-  }
 }
 
 /*
@@ -345,4 +352,103 @@ Loading spinner
     height: 58px;
     opacity: 0;
   }
+}
+
+/*
+about.html
+*/
+
+.chat {
+  font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue",
+  Helvetica, Arial, "Lucida Grande", sans-serif;
+  color: white;
+}
+
+.chat-2 {
+  font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue",
+  Helvetica, Arial, "Lucida Grande", sans-serif;
+  color: white;
+
+  border-radius: 25px;
+  background: #73AD21;
+  padding: 20px;
+  width: 200px;
+  height: 150px
+}
+
+
+.chat-container {
+  display: flex;
+  width: 100%;
+  grid-template-columns: 50% 50%;
+  grid-template-rows: 65px;
+  /* margin-top: 3%; */
+  padding-bottom: 18.5px;
+
+}
+
+.about-header {
+  padding: 60px 10px;
+  color: white;
+}
+
+.about-me {
+  color: rgb(255, 255, 255);
+  align-self: center;
+  align-self: center;
+  flex-grow: 1;
+  height: auto;
+  width: auto;
+  padding-top: 2.5rem;
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+  overflow: unset;
+}
+
+.about-extra-content {
+  display: inline-grid;
+  width: 100%;
+  grid-template-rows: 65px;
+  /* margin-top: 10%; */
+  padding-bottom: 18.5px;
+
+}
+
+.about-title {
+  text-align: center;
+  padding-bottom: 35px;
+
+  font-style: italic;
+  font-weight: 400;
+  font-size: 1.9rem;
+  font-family: 'Shadows Into Light', cursive;
+  color: rgb(255, 127, 80);
+
+
+}
+
+.about-nerd-icon {
+  align-self: center;
+  flex-grow: 1;
+  height: 33px;
+  width: 33px;
+  padding-top: 2.5%;
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+}
+
+.about-p {
+  font-family: 'Libre Baskerville', serif;
+  text-overflow: ellipsis;
+  position: relative;
+  font-size: 17px;
+  white-space: pre;
+  max-width: 40rem;
+  /* word-wrap: break-word; */
+  line-height: 5.6;
+  text-align: center;
+}
+
 }

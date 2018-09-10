@@ -32,7 +32,7 @@ function bodyOnLoad() {
       for (var i = 0; i < readingTitle.length; i++) {
         var row = table.insertRow(i);
         var cell = row.insertCell(0);
-        cell.innerHTML = "<a href='" + readingUrl[i] + "'>" + readingTitle[i] + "</a>"
+        cell.innerHTML = "<a target='_blank' href='" + readingUrl[i] + "'>" + readingTitle[i] + "</a>"
       }
       $('.lds-ripple').hide()
 
